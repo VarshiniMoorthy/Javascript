@@ -1,31 +1,110 @@
+var status = true;
+
+function CheckBlankSpace()
+{
+   if(document.getElementById("Cardnumber").value == "")
+   {
+   
+      card.innerHTML = "*Please enter cardNumber";
+       
+       //document.getElementById('CardNumber').style.borderColor="red";
+       
+   }
+   else{
+      card.innerHTML = "";
+   }
+   
+   if(document.getElementById('Please Select').value == "")
+   {
+      // alert('please enter date');
+       //document.getElementById('Please Select').style.borderColor="red";
+       time.innerHTML = "*Please enter expire date";
+       
+   }
+   
+   //if(document.getElementById('Please Selects').value == "")
+   //{
+       //alert('please enter year');
+       //document.getElementById('Please Selects').style.borderColor="red";
+      /* card.innerHTML = "please enter cardNumber";
+       return false;
+   }*/
+   
+   if(document.getElementById('Security').value == "")
+   {
+       //alert('please enter your security code ');
+       //document.getElementById('Security').style.borderColor="red";
+       security.innerHTML = "*Please enter security code";
+
+      
+   }
+   if(document.getElementById('CardHolder').value == "")
+   {
+      // alert('please enter your cardholder name ');
+       //document.getElementById('CardHolder').style.borderColor="red";
+       holderName.innerHTML = "*Please enter cardholderName";
+       
+   }
+   if(document.getElementById('Address').value == "")
+   {
+       //alert('please enter your Address1 ');
+       //document.getElementById('Address').style.borderColor="red";
+       location1.innerHTML = "*Please enter Address1";
+      
+   }
+   
+   if(document.getElementById('Town').value == "")
+   {
+      // alert('please enter your Town/City ');
+       //document.getElementById('Town').style.borderColor="red";
+       townId.innerHTML = "*Please enter Town/City";
+       
+   }
+  
+  
+   if(document.getElementById('PostalCode').value == "")
+   {
+       //alert('please enter your postalcode ');
+       //document.getElementById('PostalCode').style.borderColor="red";
+       postCode.innerHTML = "*Please enter PostalCode";
+      
+   }
+   if(document.getElementById('EmailAddress').value == "")
+   {
+       //alert('please enter your postalcode ');
+       //document.getElementById('PostalCode').style.borderColor="red";
+       postCode.innerHTML = "*Please enter EmailAddress";
+      
+   }
+   
+   
+}
+
 function CheckCardNumber()
         {
    
 
-            if (/^\d{16}$/.test(Cardnumber))
-            {
-             
-              console.log(/^\d{16}$/.test(Cardnumber))
-              return (true)
-            }
-        
-            card.innerHTML = "please enter card number";
-              //alert("You have entered an invalid email address!")
-              //document.getElementById('EmailAddress').style.borderColor="red";
-              return false
-            
+         var number = document.getElementById("Cardnumber").value;
+         if(number.length !=16) {
+             card.innerHTML = "*Please Enter 16 digit number";
+         
+         } 
+         else {
+            card.innerHTML = "";   
+         
+         }
     
         }
 
-        function CheckData()
+        function CheckDate()
         {
 
              if(document.getElementById('Please Select').value == "")
              {
                 // alert('please enter date');
                  //document.getElementById('Please Select').style.borderColor="red";
-                 time.innerHTML = "please enter expire date";
-                 return false;
+                 time.innerHTML = "*Please enter expire date";
+                
              }
              else
              {
@@ -42,54 +121,56 @@ function CheckCardNumber()
              
              function CheckSecurityCode()
              {
-             if(document.getElementById('Security').value == "")
+             var number = document.getElementById("Cardnumber").value;
+             if(number.length!=4)
              {
                  //alert('please enter your security code ');
                  //document.getElementById('Security').style.borderColor="red";
-                 security.innerHTML = "please enter security code";
+                 security.innerHTML = "*Please 4 digits security code";
 
-                 return false;
+             
              }
-             else{
-                security.innerHTML = "";
-             }
+             else {
+               security.innerHTML = "";   
+            }
+       
+             
             }
             function CheckName()
-            {
-             if(document.getElementById('CardHolder').value == "")
+            { var pattern = /^[a-zA-Z ]+$/;
+               var name =document.getElementById('CardHolder').value
+             if(!name.match(pattern))
              {
-                // alert('please enter your cardholder name ');
-                 //document.getElementById('CardHolder').style.borderColor="red";
-                 holderName.innerHTML = "please enter cardholderName";
-                 return false;
+                 holderName.innerHTML = "*Please enter valid cardholderName";
+                 
              }
              else{
                 holderName.innerHTML = "";
              }
              
             }
-            function CheckAddress()
+           /* function CheckAddress()
             {
              if(document.getElementById('Address').value == "")
              {
                  //alert('please enter your Address1 ');
                  //document.getElementById('Address').style.borderColor="red";
-                 location1.innerHTML = "please enter Address1";
-                 return false;
+                 location1.innerHTML = "* please enter Address1";
+                
              }
              else{
                 location1.innerHTML = "";
              }
              
-            }
-function CheckLocation()
+            }*/
+/*function CheckLocation()
 {
              if(document.getElementById('Address2').value == "")
              {
                  //alert('please enter your Address2 ');
                  //document.getElementById('Address2').style.borderColor="red";
                  location2.innerHTML = "please enter Address2";
-                 return false;
+                
              }
              else{
                 location2.innerHTML = "";
@@ -102,50 +183,54 @@ function CheckLocation()
                  //alert('please enter your Address3 ');
                  //document.getElementById('Address3').style.borderColor="red";
                  location3.innerHTML = "please enter Address3";
-                 return false;
+                 
              }
              else{
                 location3.innerHTML = "";
              }
              
-            }
+            }*/
             function CheckTown()
             {
-             if(document.getElementById('Town').value == "")
-             {
-                // alert('please enter your Town/City ');
+               var name = document.getElementById('Town').value
+
+               if(name !=  /^[a-zA-Z ]{2,30}$/)
+               { // alert('please enter your Town/City ');
                  //document.getElementById('Town').style.borderColor="red";
-                 townId.innerHTML = "please enter Town/City";
-                 return false;
+                 townId.innerHTML = "*Please enter  Town/City";
+                 
              }
              else{
                 townId.innerHTML = "";
              }
              
             }
-            function CheckRegion()
+            /*function CheckRegion()
             {
-             if(document.getElementById('Region').value == "")
+               var name =document.getElementById('CardHolder').value
+
+             if(name !=  /^[a-zA-Z ]{2,30}$/)
              {
                  //alert('please enter your Region ');
                  //document.getElementById('Region').style.borderColor="red";
                  region.innerHTML = "please enter region";
-                 return false;
+                
              
                 }
                 else{
                     region.innerHTML = "";
                  }
                  
-            }
+            }*/
             function CheckTelephone()
             {
-             if(document.getElementById('Telephones').value == "")
+               var number = document.getElementById("Telephone").value;
+             if(number !=10)
              {
                  //alert('please enter your number');
                  //document.getElementById('Telephones').style.borderColor="red";
-                 telephone.innerHTML = "please enter Telephone number";
-                 return false;
+                 telephone.innerHTML = "*Please enter Telephone number with 10 digits";
+                
              }
              else{
                 telephone.innerHTML = "";
@@ -154,40 +239,46 @@ function CheckLocation()
             }
             function CheckZipCode()
             {
-             if(document.getElementById('PostalCode').value == "")
+               var number = document.getElementById("PostalCode").value
+
+             if(number !=6)
              {
                  //alert('please enter your postalcode ');
                  //document.getElementById('PostalCode').style.borderColor="red";
-                 postCode.innerHTML = "please enter PostalCode";
-                 return false;
+                 postCode.innerHTML = "*Please enter valid PostalCode";
+                 
              }
              else{
                 postCode.innerHTML = "";
              }
              
             }
-         function CheckCountry()
+        /* function CheckCountry()
          {
-             if(document.getElementById('country select').value == "")
-             {
+            var name =document.getElementById('country select').value
+
+            if(name !=  /^[a-zA-Z ]{2,30}$/)
+            {
                  //alert('please choose your country ');
                 // document.getElementById('country select').style.borderColor="red";
-                country.innerHTML = "please enter country";
-                 return false;
+                country.innerHTML = "please enter  valid country";
+                 
              }
              else{
                 country.innerHTML = "";
              }
              
-            }
+            }*/
             function CheckFax()
             {
-             if(document.getElementById('Fax').value == "")
+               var number = document.getElementById("Fax").value;
+
+             if(number !=10)
              {
                  //alert('please enter your Fax ');
                  //document.getElementById('Fax').style.borderColor="red";
-                 fax.innerHTML = "please enter Fax";
-                 return false;
+                 fax.innerHTML = "*Please enter  valid Fax";
+                
              }
              else{
                 fax.innerHTML = "";
@@ -196,14 +287,19 @@ function CheckLocation()
             }
             function CheckEmailId()
             {
-             if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(Form.EmailAddress.value))
+               var EmailPattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+             if (EmailPattern.test("EmailAddress"))
   {
-    return (true)
+   emailId.innerHTML = "*Please enter valid EmailId";
   }
-  emailId.innerHTML = "please enter EmailId";
+  else{
+     
+   emailId.innerHTML = "";
+  }
     //alert("You have entered an invalid email address!")
     //document.getElementById('EmailAddress').style.borderColor="red";
-    return (false)
+   
 }
 
         
